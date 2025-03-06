@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '../Components/Button.jsx';
 import { Card, CardContent, CardHeader, CardTitle } from '../Components/Card.jsx';
 import "../Styles/home.css";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [activeFeature, setActiveFeature] = useState(null);
@@ -64,8 +65,8 @@ const Home = () => {
      <div className="btn">
           <Button 
             className="btn"
-          >
-            Start Reporting
+          > <Link to="/Contact"><li>Start Reporting</li></Link>
+         
           </Button>
         </div> 
 

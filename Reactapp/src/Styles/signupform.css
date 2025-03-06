@@ -1,4 +1,4 @@
-/* Sign-up Form CSS */
+ /* Sign-up Form CSS */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -18,6 +18,8 @@ body {
     max-width: 400px;
     padding: 30px;
     margin: 20px;
+    align-items: center;
+
 }
 
 .signup-title {
@@ -30,6 +32,9 @@ body {
 
 .form-group {
     margin-bottom: 20px;
+    align-items: center;
+ 
+   
 }
 
 .form-label {
@@ -37,6 +42,7 @@ body {
     margin-bottom: 8px;
     color: #555;
     font-weight: 600;
+    align-items: center;
 }
 
 .form-input {
@@ -95,4 +101,4 @@ body {
     .form-input, .submit-button {
         font-size: 14px;
     }
-}
+}  

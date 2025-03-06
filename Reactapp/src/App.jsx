@@ -30,10 +30,6 @@ function App() {
            <Route  path="/Contact" index element={<Contact/>} />
            <Route  path="/Dashboard" index element={<Dashboard/>} />
            </Route>
-           {/* <Route path='Shop' index element={<Shop/>}/>
-           <Route path='Venders' index element={<Venders/>}/>
-           <Route path='Blog' index element={<Blog/>}/>
-           <Route path='Contact' index element={<Contact/>}/>  */}
            </Routes> 
     </BrowserRouter>
    )

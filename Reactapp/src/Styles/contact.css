@@ -1,6 +1,14 @@
-div {
+/* contact.css */
+body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  /* background: white; */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 h2 {
@@ -11,7 +19,7 @@ h2 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  margin-left: 100px;
 }
 
 label {
@@ -19,7 +27,9 @@ label {
   margin-top: 10px;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
@@ -28,14 +38,18 @@ input, select, textarea {
   font-size: 16px;
 }
 
+textarea {
+  resize: vertical;
+}
+
 button {
   background-color: #007bff;
   color: white;
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
   font-size: 16px;
+  cursor: pointer;
   margin-top: 15px;
 }
 
@@ -45,5 +59,11 @@ button:hover {
 
 input[type="checkbox"] {
   width: auto;
-  margin-right: 5px;
+  margin-right: 10px;
 }
+
+label input[type="checkbox"] {
+  display: inline;
+  margin-left: 5px;
+}
+

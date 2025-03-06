@@ -1,104 +1,71 @@
 import React, { useState } from 'react';
-import "../Styles/login.css";
+import '../Styles/login.css';
+
 const Login = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
+  const crimeCategories = [
+    'Theft',
+    'Assault',
+    'Burglary',
+    'Fraud',
+    'Vandalism',
+    'Drug Offenses',
+    'Cybercrime',
+    'Robbery',
+    'Homicide',
+    'Kidnapping'
+  ];
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    
-    // Basic validation
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
+    if (username === 'admin' && password === 'password') {
+      setLoggedIn(true);
+      setError('');
+    } else {
+      setError('Invalid username or password');
     }
-
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', {
-      username: formData.username,
-      email: formData.email
-    });
-
-    // Reset form after submission
-    setFormData({
-      username: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    });
   };
 
   return (
-    <div className="form-container">
-      <h2 className="form-title">Log In</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form1-group">
-          <label htmlFor="username" className="form1-label">Email</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-            className="form1-input"
-          />
+    <div className="login-container">
+      {!loggedIn ? (
+        <form onSubmit={handleLogin}>
+          <h2>Login</h2>
+          {error && <p className="error">{error}</p>}
+          <label>
+            Username:
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Password:
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button type="submit">Login</button>
+        </form>
+      ) : (
+        <div className="crime-categories">
+          <h2>Crime Categories</h2>
+          <ul>
+            {crimeCategories.map((crime, index) => (
+              <li key={index}>{crime}</li>
+            ))}
+          </ul>
         </div>
-        <div className="form1-label">
-          <label htmlFor="email" className="">Password</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="form1-input"
-          />
-        </div>
-        {/* <div className="form1-label">
-          <label htmlFor="password" className="">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            className="form1-input"
-          />
-        </div>
-        <div className="form1-label">
-          <label htmlFor="confirmPassword" className="">Confirm Password</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-            className="form1-input"
-          />
-        </div> */}
-        <button
-          type="submit"
-          className="login-button"
-        >
-          login in
-        </button>
-      </form>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-//import React from 'react';
+import React from 'react';
 // import { FaCcVisa, FaCcMastercard, FaCcPaypal, FaGooglePay, FaApplePay, FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import '../styles/footer.css';
 
@@ -14,7 +14,7 @@ function Footer() {
                     <button type="submit">Submit</button>
                 </form>
                
-            </div>
+            </div> 
 
             {/* Footer Layout: Left (Links) and Right (Contact and Icons) */}
             <div className="footer-container">

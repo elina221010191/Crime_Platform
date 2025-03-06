@@ -41,11 +41,11 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="signup-container">
-      <h2 className="signup-title">Sign Up</h2>
+    <div className="signup-container1">
+      <h2 className="signup-title1">Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username" className="form-label">Username</label>
+        <div className="form-group1">
+          <label htmlFor="username" className="form-label1">Username</label>
           <input
             type="text"
             id="username"
@@ -53,10 +53,10 @@ const SignUpForm = () => {
             value={formData.username}
             onChange={handleChange}
             required
-            className="form-input"
+            className="form-input1"
           />
         </div>
-        <div className="form-label">
+        <div className="form-label1">
           <label htmlFor="email" className="">Email</label>
           <input
             type="email"
@@ -65,10 +65,10 @@ const SignUpForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="form-input"
+            className="form-input1"
           />
         </div>
-        <div className="form-label">
+        <div className="form-label1">
           <label htmlFor="password" className="">Password</label>
           <input
             type="password"
@@ -77,10 +77,10 @@ const SignUpForm = () => {
             value={formData.password}
             onChange={handleChange}
             required
-            className="form-input"
+            className="form-input1"
           />
         </div>
-        <div className="form-label">
+        <div className="form-label1">
           <label htmlFor="confirmPassword" className="">Confirm Password</label>
           <input
             type="password"
@@ -89,12 +89,12 @@ const SignUpForm = () => {
             value={formData.confirmPassword}
             onChange={handleChange}
             required
-            className="form-input"
+            className="form-input1"
           />
         </div>
         <button
           type="submit"
-          className="submit-button"
+          className="submit-button1"
         >
           Sign Up
         </button>

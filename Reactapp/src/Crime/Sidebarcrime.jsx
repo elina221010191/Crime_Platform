@@ -1,5 +1,6 @@
 // import Sidebarcrime from "Sidebarcrime.jsx"
-import "../Styles/sidebarcrime.css";
+import "../Dash_Styles/sidebarcrime.css";
+import {Link} from "react-router-dom"
 function Sidebarcrime(){
 return(
 

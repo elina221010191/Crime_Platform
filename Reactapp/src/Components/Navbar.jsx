@@ -85,10 +85,10 @@ function Navbar() {
    </div>
           </div>
           <ul className="nav-center">
-          <Link to="/">Home</Link>
+          <Link to="/"> <li>Home</li></Link>
               <Link to="/About"><li>About</li></Link>
-              <Link to="/Login">Login</Link>
-              <Link to="/SignUpForm">SignUpForm</Link>
+              <Link to="/Login"><li>Login</li> </Link>
+              <Link to="/SignUpForm"><li>SignUpForm</li></Link>
               <Link to="/Contact"><li>Contact</li></Link>
               <Link to="/Dashboard"><li>Dashboard</li></Link>
           </ul>

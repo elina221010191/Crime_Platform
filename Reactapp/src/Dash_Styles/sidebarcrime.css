@@ -1,0 +1,52 @@
+.sidebarcrimee {
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    z-index: 1000px;
+  }
+  .active2{
+  background-color: grey;
+  }
+  .avator2{
+    display: flex;
+    flex-direction: row;
+  }
+  .avator3{
+    background-color: blue;
+  }
+  avator4{
+    display: flex;
+    flex-direction: row;
+  }
+  .profile2-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .avatar2 {
+    font-size: 50px;
+  }
+  .active5{
+    margin-left: 10px;
+  }
+  
+  .board2-listcrime {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .board2-listcrime li {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    color: black;
+}
+
+.board-listcrime li:hover, .board-list .active {
+  background-color: #34495e;
+}

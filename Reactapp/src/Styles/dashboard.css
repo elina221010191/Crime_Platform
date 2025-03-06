@@ -1,204 +1,114 @@
-/* Main container */
+/* Dashboard Container */
 .dashboard-container {
-    background-color: #f3f4f6;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    max-width: 72rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* Headings */
-  .dashboard-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  
-  .section-title {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-  }
-  
-  /* Card grid */
-  .card-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  @media (min-width: 768px) {
-    .card-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-  
-  /* Cards */
-  .card {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  }
-  
-  .card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .card-title {
-    font-weight: 600;
-    color: #4b5563;
-  }
-  
-  .card-value {
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-top: 0.5rem;
-  }
-  
-  .card-trend {
-    display: flex;
-    align-items: center;
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-  }
-  
-  .trend-up {
-    color: #ef4444;
-  }
-  
-  .trend-down {
-    color: #10b981;
-  }
-  
-  .subtitle {
-    font-size: 0.875rem;
-    color: #6b7280;
-    margin-top: 0.5rem;
-  }
-  
-  /* Chart container */
-  .chart-container {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    margin-bottom: 1.5rem;
-  }
-  
-  .chart-wrapper {
-    height: 16rem;
-  }
-  
-  /* Table container */
-  .table-container {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  }
-  
-  .table-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-  }
-  
-  .view-report {
-    display: flex;
-    align-items: center;
-    color: #3b82f6;
-  }
-  
-  .view-report-text {
-    font-size: 0.875rem;
-  }
-  
-  /* Table styles */
-  .data-table {
-    min-width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-  }
-  
-  .data-table thead {
-    background-color: #f9fafb;
-  }
-  
-  .data-table th {
-    padding: 0.75rem 1.5rem;
-    text-align: left;
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-  
-  .data-table tbody {
-    background-color: white;
-  }
-  
-  .data-table tbody tr {
-    border-top: 1px solid #e5e7eb;
-  }
-  
-  .data-table td {
-    padding: 1rem 1.5rem;
-    white-space: nowrap;
-    font-size: 0.875rem;
-    color: #6b7280;
-  }
-  
-  .data-table td:nth-child(2) {
-    font-weight: 500;
-    color: #111827;
-  }
-  
-  /* Status badges */
-  .status-badge {
-    padding: 0 0.5rem;
-    display: inline-flex;
-    font-size: 0.75rem;
-    line-height: 1.25rem;
-    font-weight: 600;
-    border-radius: 9999px;
-  }
-  
-  .status-solved {
-    background-color: #d1fae5;
-    color: #065f46;
-  }
-  
-  .status-in-progress {
-    background-color: #fef3c7;
-    color: #92400e;
-  }
-  
-  .status-unsolved {
-    background-color: #fee2e2;
-    color: #b91c1c;
-  }
-  
-  /* Icon colors */
-  .icon-blue {
-    color: #3b82f6;
-  }
-  
-  .icon-red {
-    color: #ef4444;
-  }
-  
-  .icon-yellow {
-    color: #f59e0b;
-  }
-  
-  .icon-purple {
-    color: #8b5cf6;
-  }
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+/* Title */
+.dashboard-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Summary Cards */
+.section-title {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card-grid {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.card-trend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Chart Section */
+.bg-white {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f4f4f9;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  font-weight: bold;
+  color: #555;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Status Badges */
+.bg-green-100 {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.bg-yellow-100 {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.bg-red-100 {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}

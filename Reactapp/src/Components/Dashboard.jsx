@@ -59,22 +59,22 @@ const Dashboard = () => {
             <h3 className="card-header">Theft</h3>
             <AlertCircle size={20} className="card-title" />
           </div>
-          <p className="text-3xl font-bold mt-2">{currentMonthData.theft}</p>
-          <p className="text-sm text-gray-500 mt-2">Most common crime type</p>
+          <p className="card-header">{currentMonthData.theft}</p>
+          <p className="card-title">Most common crime type</p>
         </div>
         
-        <div className="bg-white p-4 rounded-lg shadow">
-          <div className="flex justify-between items-center">
-            <h3 className="font-semibold text-gray-700">Assault</h3>
-            <AlertCircle size={20} className="text-yellow-500" />
+        <div className="card-grid">
+          <div className="card">
+            <h3 className="card-header">Assault</h3>
+            <AlertCircle size={20} className="" />
           </div>
           <p className="text-3xl font-bold mt-2">{currentMonthData.assault}</p>
           <p className="text-sm text-gray-500 mt-2">Second most common</p>
         </div>
         
-        <div className="bg-white p-4 rounded-lg shadow">
-          <div className="flex justify-between items-center">
-            <h3 className="font-semibold text-gray-700">Hotspot Areas</h3>
+        <div className="card-grid">
+          <div className="card">
+            <h3 className="card-header">Hotspot Areas</h3>
             <AlertCircle size={20} className="text-purple-500" />
           </div>
           <p className="text-3xl font-bold mt-2">3</p>

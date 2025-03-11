@@ -1,5 +1,5 @@
 /* Login.css */
-.login-container {
+/* .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,4 +96,73 @@ li {
 
 li:last-child {
   border-bottom: none;
+} */
+ /* src/components/CrimeNavbar.css */
+
+/* Add custom transition for menu toggle */
+.menu-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Add hover effect for emergency button */
+.emergency-btn:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+
+/* Custom focus styles for search input */
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Add a subtle animation for the logo */
+.navbar-logo {
+  position: relative;
+}
+
+.navbar-logo::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #dc2626;
+  transition: width 0.3s;
+}
+
+.navbar-logo:hover::after {
+  width: 100%;
+}
+
+/* Add subtle hover animations to nav links */
+.nav-link {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #3b82f6;
+  transition: all 0.3s;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+/* Active link styles */
+.nav-link.active {
+  color: #3b82f6;
+}
+
+.nav-link.active::after {
+  width: 80%;
+  background-color: #3b82f6;
 }

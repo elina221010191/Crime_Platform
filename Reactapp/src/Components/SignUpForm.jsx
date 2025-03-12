@@ -1,255 +1,91 @@
-// import React, { useState } from 'react';
-// import "../Styles/signupform.css";
-// const SignUpForm = () => {
-//   const [formData, setFormData] = useState({
-//     username: '',
-//     email: '',
-//     password: '',
-//     confirmPassword: ''
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData(prevState => ({
-//       ...prevState,
-//       [name]: value
-//     }));
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-    
-//     // Basic validation
-//     if (formData.password !== formData.confirmPassword) {
-//       alert("Passwords do not match!");
-//       return;
-//     }
-
-//     // Here you would typically send the data to your backend
-//     console.log('Form submitted:', {
-//       username: formData.username,
-//       email: formData.email
-//     });
-
-//     // Reset form after submission
-//     setFormData({
-//       username: '',
-//       email: '',
-//       password: '',
-//       confirmPassword: ''
-//     });
-//   };
-
-//   return (
-//     <div className="signup-container">
-//       <h2 className="signup-title">Sign Up</h2>
-//       <form onSubmit={handleSubmit}>
-//         <div className="form-group">
-//           <label htmlFor="username" className="form-label">Username</label>
-//           <input
-//             type="text"
-//             id="username"
-//             name="username"
-//             value={formData.username}
-//             onChange={handleChange}
-//             required
-//             className="form-input"
-//           />
-//         </div>
-//         <div className="form-label">
-//           <label htmlFor="email" className="">Email</label>
-//           <input
-//             type="email"
-//             id="email"
-//             name="email"
-//             value={formData.email}
-//             onChange={handleChange}
-//             required
-//             className="form-input"
-//           />
-//         </div>
-//         <div className="form-label">
-//           <label htmlFor="password" className="">Password</label>
-//           <input
-//             type="password"
-//             id="password"
-//             name="password"
-//             value={formData.password}
-//             onChange={handleChange}
-//             required
-//             className="form-input"
-//           />
-//         </div>
-//         <div className="form-label">
-//           <label htmlFor="confirmPassword" className="">Confirm Password</label>
-//           <input
-//             type="password"
-//             id="confirmPassword"
-//             name="confirmPassword"
-//             value={formData.confirmPassword}
-//             onChange={handleChange}
-//             required
-//             className="form-input"
-//           />
-//         </div>
-//         <button
-//           type="submit"
-//           className="submit-button"
-//         >
-//           Sign Up
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default SignUpForm;
-
-import React, { useState } from 'react';
-import {useForm} from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import {Notify} from 'notiflix';
-
-
-
-const Signup = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
-
-  const handleSignup = (e) => {
-    e.preventDefault();
-    setError('');
-    
-    // Simple validation
-    if (!name || !email || !password || !confirmPassword) {
-      setError('Please fill in all fields');
-      return;
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import {Notify} from "notiflix";
+import { Link } from "react-router-dom";
+import { IoClose } from "react-icons/io5";
+import Login from "./Login";
+const Register=({HandleSignUpForm})=>
+{
+    const [userName, setLastname] = useState("");
+    const [userEmail, setEmail] = useState("");
+    const [userPassword, setPassword] = useState("");
+     const [message, setMessage] = useState("");
+     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate();
+const [modal,useModal]=useState(false);
+const HandleLoginForm=()=>
+    {
+        useModal(!modal)
     }
-    
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        try {
+            const response = await axios.post("http://localhost:4000/crime/user/register", {
+                userName,
+                userEmail,
+                userPassword,
+            });
+            Notify.success(response.data.message);
+                 
+        } catch (error) {
+            Notify.success(error.response?.data?.message || "SignUp Failed")
+        }
+        finally{
+            setLoading(false);
+        }
+    };
+    const styles={
+        overlay: {
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)", // Black transparent background
+            zIndex: 1000, // Ensures it's on top of everything
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          modal: {
+            backgroundColor: "white",
+            padding: "2rem",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            width: "600px",
+            maxWidth: "90%",
+          },
     }
-    
-    // Here you would typically make an API call to register the user
-    console.log('Signup attempt with:', { name, email, password });
-    
-    // For demo purposes, simulate a successful signup
-    alert('Account created successfully!');
-    navigate('/login');
-  };
-
-  const goToLogin = () => {
-    navigate('/login');
-  };
-
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900">Create an Account</h1>
-          <p className="mt-2 text-gray-600">Sign up to get started</p>
-        </div>
-        
-        {error && (
-          <div className="p-3 text-sm text-red-500 bg-red-100 rounded-md">
-            {error}
-          </div>
-        )}
-        
-        <form className="mt-8 space-y-6" onSubmit={handleSignup}>
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-              Full Name
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md"
-              placeholder="John Doe"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email Address
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md"
-              placeholder="you@example.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          
-          <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              required
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md"
-              placeholder="Your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          
-          <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-              Confirm Password
-            </label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              required
-              className="w-full px-3 py-2 mt-1 border border-gray-300 rounded-md"
-              placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-          
-          <div className="space-y-3">
-            <button
-              type="submit"
-              className="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
-            >
-              Create Account
-            </button>
+    return(
+        <div style={styles.overlay}>
+            {modal && <Login HandleLoginForm={HandleLoginForm} />}
+            <div style={styles.modal}>
+            <div style={{display:"flex",gap:"420px",flexDirection:"row",marginBottom:"20px"}}><div
+          style={{
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            textAlign: 'center',
+            color: '#4a5568',
+          }}
+        >
+          Register
+        </div><div><IoClose onClick={HandleSignUpForm} style={{marginTop:"0px", fontSize: "30px",cursor:"pointer"}}/></div></div>
             
-            <div className="text-center">
-              <span className="text-sm text-gray-600">Already have an account? </span>
-              <button
-                type="button"
-                onClick={goToLogin}
-                className="text-sm text-blue-600 hover:underline"
-              >
-                Sign in
-              </button>
-            </div>
+            <form onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column",gap:"20px"}}>
+                <div style={{display:"flex",gap:"20px"}}><span style={{color:"black",paddingTop:"10px"}}>Name:</span><input type="text" placeholder="Enter your Name" value={userName} onChange={(e)=>setLastname(e.target.value)} style={{width:"400px"}} required/></div>
+                <div style={{display:"flex",gap:"20px"}}><span style={{color:"black",paddingTop:"10px"}}>Email:</span><input type="email" placeholder="Enter your Email" value={userEmail} onChange={(e)=>setEmail(e.target.value)} style={{width:"400px",marginLeft:"40px"}} required/></div>
+                <div style={{display:"flex",gap:"20px"}}><span style={{color:"black",paddingTop:"10px"}}>Password:</span>
+                 <input   type="password" style={{ paddingRight: "30px" ,width:"380px",marginLeft:"10px"}} placeholder="Password" value={userPassword} onChange={(e)=>setPassword(e.target.value)}  required/>
           </div>
-        </form>
-      </div>
-    </div>
-  );
-};
-
-export default Signup;
+      
+              <div style={{display:"flex",gap:"20px"}}> <button type="submit" disabled={loading} style={{width:"200px",marginLeft:"0px",backgroundColor:"#FE4801",border:"none"}}>SIGN UP</button> <span style={{marginTop:"25px",color:"black"}}>Already have account<span onClick={HandleLoginForm} style={{color:"#FE4801",marginLeft:"5px",background:"none",cursor:"pointer"}}>Login</span></span></div> 
+            </form>
+            {loading && <p>Loading...</p>}
+           
+            </div>
+        </div>
+    )
+}
+export default Register

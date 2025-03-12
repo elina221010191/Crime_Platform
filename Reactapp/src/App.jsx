@@ -9,18 +9,12 @@ import About from './Components/About'
 import Contact from './Components/Contact'
 import Dashboard from './Components/Dashboard'
 import Blog from './Components/Blog'
-// import Crime_Layout from './Crime/Crime_Layout'
-// import Crime_Navbar from './Crime/Crime_Navbar'
-// import Crime_View from './Crime/Crime_View'
-// import Sidebarcrime from './Crime/Sidebarcrime'
-// import Blog from './components/Blog'
-// import Shop from './components/Shop'
-// import Venders from './components/Venders'
-// import Contact from './components/Contact'
+import AuthProvider from "./Components/AuthProvider"
 
 function App() {
   
     return(
+      <AuthProvider>
      <BrowserRouter>
          <Routes>
            <Route path='/' element={<Layout/>}>
@@ -34,6 +28,7 @@ function App() {
            </Route>
            </Routes> 
     </BrowserRouter>
+    </AuthProvider>
    )
 }
 export default App

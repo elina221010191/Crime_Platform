@@ -8,6 +8,7 @@ import SignUpForm from './Components/SignUpForm'
 import About from './Components/About'
 import Contact from './Components/Contact'
 import Dashboard from './Components/Dashboard'
+import Blog from './Components/Blog'
 // import Crime_Layout from './Crime/Crime_Layout'
 // import Crime_Navbar from './Crime/Crime_Navbar'
 // import Crime_View from './Crime/Crime_View'
@@ -29,6 +30,7 @@ function App() {
            <Route  path="/About" index element={<About/>} />
            <Route  path="/Contact" index element={<Contact/>} />
            <Route  path="/Dashboard" index element={<Dashboard/>} />
+           <Route  path="/Blog" index element={<Blog/>} />
            </Route>
            </Routes> 
     </BrowserRouter>

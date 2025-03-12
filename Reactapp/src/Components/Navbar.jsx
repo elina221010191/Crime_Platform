@@ -133,12 +133,12 @@ const Navbar = () => {
 
             {/* Auth buttons */}
             <div className="hidden md:flex md:ml-4">
-              <Link to="/SignUpForm" className="px-3 py-1 text-sm text-gray-300 hover:text-white">
+              <Link to="/Login" className="px-3 py-1 text-sm text-gray-300 hover:text-white">
                 Login
               </Link>
-              {/* <Link to="/register" className="ml-2 px-3 py-1 text-sm bg-blue-600 hover:bg-blue-700 rounded-md"> */}
-                {/* Register
-              </Link> */}
+              <Link to="/SignUpForm" className="ml-2 px-3 py-1 text-sm bg-blue-600 hover:bg-blue-700 rounded-md"> 
+              SignUp
+              </Link>
             </div>
 
             {/* Mobile menu button */}

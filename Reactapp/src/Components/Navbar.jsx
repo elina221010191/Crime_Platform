@@ -3,9 +3,9 @@ import { Link,useNavigate } from "react-router-dom";
 import "../Styles/navbar.css";
 import Login from "./Login";
 import Register from "./SignUpForm";
-import { useAuth } from "./AuthProvider";
+// import { useAuth } from "./AuthProvider";
 const Navbar = () => {
-  const {logout}=useAuth();
+  // const {logout}=useAuth();
   const [modal,useModal]=useState(false);
     const [model,useModel] = useState(false);
     const [user, setUser] = useState(null);

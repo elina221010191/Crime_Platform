@@ -10,12 +10,12 @@ import Contact from './Components/Contact'
 import Dashboard from './Components/Dashboard'
 import Blog from './Components/Blog'
 import Crime from './Components/Crime'
-import AuthProvider from "./Components/AuthProvider"
+// import AuthProvider from "./Components/AuthProvider"
 
 function App() {
   
     return(
-      <AuthProvider>
+ 
      <BrowserRouter>
          <Routes>
            <Route path='/' element={<Layout/>}>
@@ -30,7 +30,7 @@ function App() {
            </Route>
            </Routes> 
     </BrowserRouter>
-    </AuthProvider>
+    // </AuthProvider>
    )
 }
 export default App

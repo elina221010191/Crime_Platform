@@ -9,6 +9,7 @@ import About from './Components/About'
 import Contact from './Components/Contact'
 import Dashboard from './Components/Dashboard'
 import Blog from './Components/Blog'
+import Crime from './Components/Crime'
 import AuthProvider from "./Components/AuthProvider"
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
            <Route  path="/Contact" index element={<Contact/>} />
            <Route  path="/Dashboard" index element={<Dashboard/>} />
            <Route  path="/Blog" index element={<Blog/>} />
+           <Route  path="/Crime" index element={<Crime/>} />
            </Route>
            </Routes> 
     </BrowserRouter>

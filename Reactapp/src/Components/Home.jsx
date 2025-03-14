@@ -1,6 +1,7 @@
 import "../Styles/home.css";
 import Login from "./Login";
 import { Link } from "react-router-dom";
+import CrimeTypes from "./About"
 import { useState } from "react";
 const Home = () => {
   const [modal,useModal]=useState(false);
@@ -19,6 +20,7 @@ const Home = () => {
        <button className="Book-Button" onClick={HandleLoginForm}>REPORT</button>
       </div>
       </div>
+<CrimeTypes/>
     </div>
   );
 };
